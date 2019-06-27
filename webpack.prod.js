@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
+  // Polyfills have to be installed in root page
   mode: 'production', resolve: { extensions: ['.ts', '.js'] },
   module: {
     rules: [
