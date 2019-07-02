@@ -21,8 +21,8 @@ class AppComponent extends LitElement {
 
   render() {
     return html`
-          <button @click=${()=> this.emit()}>
-          ${this.title}
+          <button @click=${() => this.emit()}>
+            ${this.title}
           </button>
 `;
   }
