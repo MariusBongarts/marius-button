@@ -1,33 +1,34 @@
 @import "../variables.scss";
 
-html,
-body {
-  height: 100%;
-}
-body {
-  text-align: center;
-}
-body:before {
-  content: "";
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
+
 button {
-  background: black;
-  color: var(--app-secondary-color);
+  border-radius: 10px;
+  background-color: var(--app-primary-color);
+  color:white;
   border: none;
   position: relative;
-  height: 60px;
-  font-size: 1.6em;
-  padding: 0 2em;
+  display: inline-block;
+  font-size: 1em;
   cursor: pointer;
-  transition: 800ms ease all;
+  transition: 300ms ease all;
   outline: none;
 }
-button:hover {
+
+button:hover, button:focus {
+  transition: none;
+  background-color: var(--app-primary-color-hover);
+}
+
+button:focus {
+  background-color: white;
   color: var(--app-primary-color);
 }
+
+button:active {
+  transform: scale(1.05);
+}
+
+// Main settings for borders
 button:before,
 button:after {
   content: "";
@@ -37,7 +38,7 @@ button:after {
   height: 2px;
   width: 0;
   background: var(--app-primary-color);
-  transition: 400ms ease all;
+  transition: 300ms ease all;
 }
 button:after {
   right: inherit;
@@ -45,8 +46,74 @@ button:after {
   left: 0;
   bottom: 0;
 }
-button:hover:before,
-button:hover:after {
+
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+button:before,
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: white;
+}
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+
+// When hovered
+button:focus:before,
+button:focus:after {
   width: 100%;
-  transition: 600ms ease all;
+  transition: 300ms ease all;
+  background: var(--app-primary-color);
+}
+
+span {
+  display: block;
+  padding: 0.4em 0.5em;
+}
+
+span::before,
+span::after {
+  content: "";
+  height: 0;
+  position: absolute;
+  background: var(--app-primary-color);
+}
+
+button:active, button:focus {
+  span::after {
+    width: 2px;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    transition: all 0.2s linear;
+  }
+
+  span::before {
+    width: 2px;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: all 0.2s linear;
+  }
 }

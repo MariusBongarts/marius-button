@@ -1,4 +1,4 @@
-import { css, customElement, html, LitElement, property, unsafeCSS } from 'lit-element';
+import { css, customElement, html, LitElement, property, unsafeCSS, query } from 'lit-element';
 
 const componentCSS = require('./app.component.scss');
 
@@ -7,11 +7,19 @@ class AppComponent extends LitElement {
 
   static styles = css`${unsafeCSS(componentCSS)}`;
 
+  @query('button')
+  btnElement!: HTMLButtonElement;
+
   @property()
-  title = 'Example button';
+  title = 'marius-button';
 
   emit() {
-    console.log('Button clicked');
+    // const element: HTMLElement = document.activeElement as HTMLElement;
+    // element.tagName === 'MARIUS-BUTTON' ? this.btnElement.blur() : '';
+    this.btnElement.classList.add('active');
+    setTimeout(() => {
+      this.btnElement.classList.remove('active');
+    }, 500)
     this.dispatchEvent(
       new CustomEvent('buttonClick', {
         bubbles: true
@@ -21,8 +29,8 @@ class AppComponent extends LitElement {
 
   render() {
     return html`
-          <button @click=${() => this.emit()}>
-            ${this.title}
+          <button @click=${()=> this.emit()}>
+            <span>${this.title}</span>
           </button>
 `;
   }
