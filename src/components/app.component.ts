@@ -11,7 +11,7 @@ class AppComponent extends LitElement {
   btnElement!: HTMLButtonElement;
 
   @property()
-  title = 'marius-button';
+  content: string = 'marius-button';
 
   emit() {
     // const element: HTMLElement = document.activeElement as HTMLElement;
@@ -29,8 +29,8 @@ class AppComponent extends LitElement {
 
   render() {
     return html`
-          <button @click=${()=> this.emit()}>
-            <span>${this.title}</span>
+          <button @click=${() => this.emit()}>
+            <span>${this.content}</span>
           </button>
 `;
   }
