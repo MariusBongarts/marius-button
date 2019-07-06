@@ -16,10 +16,6 @@ class AppComponent extends LitElement {
   emit() {
     // const element: HTMLElement = document.activeElement as HTMLElement;
     // element.tagName === 'MARIUS-BUTTON' ? this.btnElement.blur() : '';
-    this.btnElement.classList.add('active');
-    setTimeout(() => {
-      this.btnElement.classList.remove('active');
-    }, 500)
     this.dispatchEvent(
       new CustomEvent('buttonClick', {
         bubbles: true
