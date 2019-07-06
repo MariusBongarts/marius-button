@@ -11,7 +11,7 @@ class AppComponent extends LitElement {
   btnElement!: HTMLButtonElement;
 
   @property()
-  content: string = 'marius-button';
+  content: string = 'mb-button';
 
   emit() {
     // const element: HTMLElement = document.activeElement as HTMLElement;
